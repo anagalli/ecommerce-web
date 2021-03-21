@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './assets/css/App.css';
+import Header from './components/Header';
+import Banner from './components/Banner';
+import ItemListContainer from './components/ItemListContainer';
+import stock from './stock.json';
 
 function App() {
+  
+  const [items, setItems] = useState([]);
+
+  useEffect( () => {
+    new Promise( (resolve, reject) => {
+      setTimeout( () => {
+        resolve(stock);
+      }, 2000);
+    }).then( (resultado) => setItems(resultado));
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Banner />
+      <ItemListContainer items={items} greeting="Productos"/>
     </div>
   );
+
 }
 
 export default App;

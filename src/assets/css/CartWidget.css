@@ -1,0 +1,16 @@
+.cart-container {
+    display: flex;
+    align-items: center;
+}
+
+.cart-img {
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.cart-number {
+    color: #000;
+    height: 18px;
+    font-size: 18px;
+}

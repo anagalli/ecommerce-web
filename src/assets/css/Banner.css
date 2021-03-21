@@ -1,0 +1,37 @@
+.banner {
+    background-image: url(../images/banner.jpg);
+    background-position: center;
+}
+
+.banner-container {
+    width: 800px;
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-banner {
+    width: 360px;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+}
+
+.title-banner {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.span-title {
+    font-size: 36px;
+    color: #C20000;
+}
+
+.subtitle-banner {
+    font-size: 24px;
+}
+
+.img-banner {
+    height: 260px;
+}

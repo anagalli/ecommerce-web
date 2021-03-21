@@ -1,0 +1,13 @@
+.logotipo-container {
+    width: fit-content;
+}
+
+.link-logotipo {
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.img-logotipo {
+    height: 18px;
+}
