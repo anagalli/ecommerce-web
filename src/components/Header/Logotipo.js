@@ -1,12 +1,13 @@
 import '../../assets/css/Logotipo.css';
 import logo from '../../assets/images/logotipo.png';
+import {Link} from 'react-router-dom';
 
 function Logotipo() {
     return (
         <div className="logotipo-container">
-            <a href="#home" className="link-logotipo">
+            <Link to={`/`} className="link-logotipo">
                 <img className="img-logotipo" src={logo} alt="Logotipo" />
-            </a>
+            </Link>
         </div>
     );
 }

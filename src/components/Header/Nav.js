@@ -1,13 +1,14 @@
 import '../../assets/css/Nav.css';
+import {Link} from 'react-router-dom';
 
 function Nav() {
     return(
         <nav className="main-nav">
             <ul className="ul-nav">
-                <li><a href="#productos" className="link-nav">Productos</a></li>
-                <li><a href="#gamer" className="link-nav">Gamer</a></li>
-                <li><a href="#professional" className="link-nav">Professional</a></li>
-                <li><a href="#premium" className="link-nav">Premium</a></li>
+                <li><Link to={`/`} className="link-nav">Productos</Link></li>
+                <li><Link to={`/`} className="link-nav">Gamer</Link></li>
+                <li><Link to={`/`} className="link-nav">Professional</Link></li>
+                <li><Link to={`/`} className="link-nav">Premium</Link></li>
             </ul>
         </nav>
     );

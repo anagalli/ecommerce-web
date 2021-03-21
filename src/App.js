@@ -20,12 +20,18 @@ function App() {
   });
 
   return (
-    <div className="App">
+    <BrowserRouter>
       <Header />
       <Banner />
-      <ItemListContainer items={items} greeting="Productos"/>
-      <ItemDetailContainer items={items} />
-    </div>
+      <Switch>
+        <Route exact path="/">
+          <ItemListContainer items={items} greeting="Productos"/>
+        </Route>
+        <Route path="/products">
+          <ItemDetailContainer items={items} />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 
 }
