@@ -15,7 +15,7 @@ li {
 }
 
 .ul-nav {
-    width: 280px;
+    width: 320px;
     display: flex;
     justify-content: space-between;
 }

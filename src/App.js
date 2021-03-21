@@ -3,6 +3,7 @@ import './assets/css/App.css';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
 import stock from './stock.json';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Header />
       <Banner />
       <ItemListContainer items={items} greeting="Productos"/>
+      <ItemDetailContainer items={items} />
     </div>
   );
 
