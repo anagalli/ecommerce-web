@@ -1,4 +1,4 @@
-import '../assets/css/Header.css';
+import '../../assets/css/Header.css';
 import Logotipo from './Logotipo';
 import Nav from './Nav';
 import ButtonsNav from './ButtonsNav';

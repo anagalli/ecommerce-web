@@ -1,5 +1,5 @@
 import Item from './Item';
-import '../assets/css/ItemList.css';
+import '../../assets/css/ItemList.css';
 
 const ItemList = (props) => (
     <>

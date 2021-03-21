@@ -1,4 +1,4 @@
-import '../assets/css/ButtonsNav.css';
+import '../../assets/css/ButtonsNav.css';
 import CartWidget from './CartWidget';
 
 function ButtonsNav() {

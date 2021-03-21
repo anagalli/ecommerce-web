@@ -1,4 +1,4 @@
-import '../assets/css/ItemDetailContainer.css';
+import '../../assets/css/ItemDetailContainer.css';
 import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = (props) => (

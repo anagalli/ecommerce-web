@@ -1,5 +1,5 @@
-import '../assets/css/Logotipo.css';
-import logo from '../assets/images/logotipo.png';
+import '../../assets/css/Logotipo.css';
+import logo from '../../assets/images/logotipo.png';
 
 function Logotipo() {
     return (

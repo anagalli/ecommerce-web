@@ -1,5 +1,5 @@
-import '../assets/css/CartWidget.css';
-import cart from '../assets/images/cart-black.png';
+import '../../assets/css/CartWidget.css';
+import cart from '../../assets/images/cart-black.png';
 
 function CartWidget() {
     return(

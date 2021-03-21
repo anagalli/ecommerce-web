@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './assets/css/App.css';
-import Header from './components/Header';
-import Banner from './components/Banner';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import Header from './components/Header/Header';
+import Banner from './components/Header/Banner';
+import ItemListContainer from './components/Home/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import stock from './stock.json';
 
 function App() {
-  
+
   const [items, setItems] = useState([]);
 
   useEffect( () => {

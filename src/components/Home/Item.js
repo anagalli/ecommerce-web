@@ -1,4 +1,4 @@
-import '../assets/css/Item.css';
+import '../../assets/css/Item.css';
 
 const Item = (props) => 
 
