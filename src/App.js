@@ -15,7 +15,7 @@ function App() {
     new Promise( (resolve, reject) => {
       setTimeout( () => {
         resolve(stock);
-      }, 2000);
+      }, 1000);
     }).then( (resultado) => setItems(resultado));
   });
 
@@ -27,8 +27,8 @@ function App() {
         <Route exact path="/">
           <ItemListContainer items={items} greeting="Productos"/>
         </Route>
-        <Route path="/products">
-          <ItemDetailContainer items={items} />
+        <Route path="/category">
+          <ItemDetailContainer />
         </Route>
       </Switch>
     </BrowserRouter>

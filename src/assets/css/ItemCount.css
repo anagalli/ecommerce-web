@@ -1,0 +1,28 @@
+.div-buybutton {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.span-stock {
+    display: block;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.input-stock {
+    margin-right: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    padding: 4px 4px;
+}
+
+.button-buy {
+    padding: 5px 14px;
+    color: #C20000;
+    border: 2px solid #C20000;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+}
