@@ -15,7 +15,7 @@ function App() {
     new Promise( (resolve, reject) => {
       setTimeout( () => {
         resolve(stock);
-      }, 1000);
+      }, 2000);
     }).then( (resultado) => setItems(resultado));
   });
 
@@ -24,12 +24,15 @@ function App() {
       <Header />
       <Banner />
       <Switch>
-        <Route exact path="/">
-          <ItemListContainer items={items} greeting="Productos"/>
-        </Route>
-        <Route path="/category">
-          <ItemDetailContainer />
-        </Route>
+      <Route exact path="/product/:id" render={(props)=>(
+          <ItemDetailContainer items={items} id={props.match.params.id}/>
+        )} />
+        <Route exact path="/:category" render={(props)=>(
+          <ItemListContainer items={items} category={props.match.params.category}/>
+        )} />
+        <Route exact path="/" render={()=>(
+          <ItemListContainer items={items} />
+        )} />
       </Switch>
     </BrowserRouter>
   );

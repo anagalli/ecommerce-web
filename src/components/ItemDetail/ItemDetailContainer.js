@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import '../../assets/css/ItemDetailContainer.css';
 import ItemDetail from './ItemDetail';
+import ItemListContainer from '../Home/ItemListContainer';
 import stock from '../../stock.json';
 
 const ItemDetailContainer = (props) =>  {
 
-    const [items, setItems] = useState([]);
+    let id = parseInt(props.id);
+
+    const [item, setItem] = useState([]);
 
     useEffect( () => {
-        new Promise( (resolve, reject) => {
+      new Promise( (resolve, reject) => {
         setTimeout( () => {
-            resolve(stock);
-        }, 1000);
-        }).then( (resultado) => setItems(resultado));
-    });
+          resolve(stock);
+        }, 500);
+      }).then( (resultado) => {
+          let filterProducts = id ? resultado.filter((el) => el.id === id ) : resultado
+          setItem(filterProducts[0])
+      })
+    },[id]);
 
     return (
     <div className="detail-products">
         {
-            items.map( (el, index) => <ItemDetail key={index} item={el} /> )
+          id <= stock.length ? <ItemDetail item={item} /> : <ItemListContainer items={props.items} />
         }
     </div>
     )

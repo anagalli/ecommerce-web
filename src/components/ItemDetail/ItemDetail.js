@@ -4,11 +4,15 @@ import '../../assets/css/ItemDetail.css';
 
 const ItemDetail = (props) => {
 
-    const [stockActual, setStockActual] = useState(10);
+    const [stock, setStock] = useState(10);
 
-    const restartStock = (e, nuevoStock) => {
-        e.preventDefault();
-        setStockActual((stockActual) => stockActual - nuevoStock);
+    const newStock = (amount) => {
+
+        if (amount <= stock) {
+            setStock(stock - amount);
+        } else {
+            alert('Stock insuficiente.');
+        }
     }
 
     return(
@@ -29,7 +33,7 @@ const ItemDetail = (props) => {
                     <li className="li-detail"><span className="span-li-detail">Video:</span> {props.item.video}</li>
                     <li className="li-detail"><span className="span-li-detail">Sistema Operativo:</span> {props.item.sistema}</li>
                 </ul>
-                <ItemCount stock={stockActual} initial={1} onAdd={restartStock}/>
+                <ItemCount stock={stock} initial={1} onAdd={newStock}/>
             </div>
         </div>
     )
