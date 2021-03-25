@@ -5,7 +5,6 @@ function CartWidget() {
     return(
         <div className="cart-container">
             <img className="cart-img" src={cart} alt="cart" />
-            <span className="cart-number">0</span>
         </div>
     );
 }

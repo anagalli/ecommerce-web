@@ -1,28 +1,50 @@
 .div-buybutton {
-    margin-top: 40px;
+    margin-top: 30px;
     width: 100%;
+}
+
+.form-buy {
+    margin-bottom: 30px;
 }
 
 .span-stock {
     display: block;
-    margin-bottom: 20px;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 13px;
 }
 
-.input-stock {
-    margin-right: 10px;
-    margin-bottom: 20px;
+.div-buttons {
+    margin-right: 40px;
+    display: inline-block;
+}
+
+.button-add, .button-rest {
+    border: 1px solid rgb(112, 112, 112);
+    border-radius: 0px;
+    height: 24px;
+    width: 40px;
     font-size: 14px;
-    padding: 4px 4px;
+    cursor: pointer;
+}
+
+.label-nostock {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.label-counter {
+    margin: 0px 20px;
+    font-size: 14px;
 }
 
 .button-buy {
-    padding: 5px 14px;
-    color: #C20000;
-    border: 2px solid #C20000;
-    text-transform: uppercase;
-    font-weight: bold;
+    padding: 6px 14px;
+    color: #000000;
+    border: 2px solid #000000;
     cursor: pointer;
-    font-size: 12px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: bold;
 }

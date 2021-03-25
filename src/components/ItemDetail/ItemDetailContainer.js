@@ -21,10 +21,12 @@ const ItemDetailContainer = (props) =>  {
       })
     },[id]);
 
+    const stockItem = item.stock;
+
     return (
     <div className="detail-products">
         {
-          id <= stock.length ? <ItemDetail item={item} /> : <ItemListContainer items={props.items} />
+          id <= stock.length ? <ItemDetail item={item} stockItem={stockItem} /> : <ItemListContainer items={props.items} />
         }
     </div>
     )

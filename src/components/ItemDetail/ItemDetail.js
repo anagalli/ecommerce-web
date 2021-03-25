@@ -7,11 +7,8 @@ const ItemDetail = (props) => {
     const [stock, setStock] = useState(10);
 
     const newStock = (amount) => {
-
         if (amount <= stock) {
             setStock(stock - amount);
-        } else {
-            alert('Stock insuficiente.');
         }
     }
 
@@ -24,7 +21,7 @@ const ItemDetail = (props) => {
                 <h2 className="title-detail">{props.item.title}</h2>
                 <span className="category-detail">{props.item.category}</span>
                 <ul className="description-detail">
-                    <li className="li-detail"><span className="span-li-detail">Marca:</span> {props.item.marca}</li>
+                    <li className="li-detail"><span className="span-li-detail">Marca:</span>{props.item.marca}</li>
                     <li className="li-detail"><span className="span-li-detail">Modelo:</span> {props.item.modelo}</li>
                     <li className="li-detail"><span className="span-li-detail">Procesador:</span> {props.item.procesador}</li>
                     <li className="li-detail"><span className="span-li-detail">Disco:</span> {props.item.disco}</li>
@@ -33,6 +30,7 @@ const ItemDetail = (props) => {
                     <li className="li-detail"><span className="span-li-detail">Video:</span> {props.item.video}</li>
                     <li className="li-detail"><span className="span-li-detail">Sistema Operativo:</span> {props.item.sistema}</li>
                 </ul>
+                <p className="price-detail">${props.item.price}</p>
                 <ItemCount stock={stock} initial={1} onAdd={newStock}/>
             </div>
         </div>
