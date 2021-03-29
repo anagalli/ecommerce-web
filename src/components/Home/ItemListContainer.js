@@ -7,7 +7,7 @@ class ItemListContainer extends Component {
 
     return (
       <>
-        <ItemList items={this.props.items} category={this.props.category}/>
+        <ItemList />
       </>
     );
 

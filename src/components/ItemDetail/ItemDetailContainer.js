@@ -1,32 +1,36 @@
 import React, { useEffect, useState } from 'react';
+import {useParams} from 'react-router-dom';
 import '../../assets/css/ItemDetailContainer.css';
 import ItemDetail from './ItemDetail';
 import ItemListContainer from '../Home/ItemListContainer';
 import stock from '../../stock.json';
 
-const ItemDetailContainer = (props) =>  {
+const ItemDetailContainer = () =>  {
 
-    let id = parseInt(props.id);
+    let {id} = useParams()
 
     const [item, setItem] = useState([]);
 
-    useEffect( () => {
-      new Promise( (resolve, reject) => {
-        setTimeout( () => {
-          resolve(stock);
-        }, 500);
-      }).then( (resultado) => {
-          let filterProducts = id ? resultado.filter((el) => el.id === id ) : resultado
-          setItem(filterProducts[0])
-      })
-    },[id]);
+    useEffect(() => {
+        getItem()
+        .then((result) => {
+            let filter = id ? result.filter((el) => el.id === parseInt(id)) : result
+            setItem(filter)
+        })
+    }, [id]);
 
-    const stockItem = item.stock;
+    const getItem = () => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(stock)
+        }, 500);
+      })
+    }
 
     return (
     <div className="detail-products">
         {
-          id <= stock.length ? <ItemDetail item={item} stockItem={stockItem} /> : <ItemListContainer items={props.items} />
+          item.length > 0 ? <ItemDetail item={item[0]} /> : <ItemListContainer />
         }
     </div>
     )

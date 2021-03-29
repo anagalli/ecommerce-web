@@ -1,13 +1,24 @@
 import { useState } from 'react';
-import '../../assets/css/ItemCount.css'
+import '../../assets/css/ItemCount.css';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
     const [counter, setCounter] = useState(initial);
 
-    const addProduct = () => {
+    const addProduct = (e) => {
+        e.preventDefault();
         onAdd(counter);
         setCounter(initial);
+    }
+
+    const addCounter = (e) => {
+        e.preventDefault();
+        setCounter(counter < stock ? counter + 1 : counter);
+    }
+
+    const restCounter = (e) => {
+        e.preventDefault();
+        setCounter(counter > initial ? counter - 1 : counter);
     }
 
     return (
@@ -17,18 +28,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
                     stock
                     ?
                     <div className="div-buttons">
-                        <button className="button-add" onClick={ (e) => {
-                            e.preventDefault();
-                            setCounter(counter < stock ? counter + 1 : counter)}}>+</button>
+                        <button className="button-rest" onClick={(e) => restCounter(e)}>-</button>
                         <label className="label-counter">{counter}</label>
-                        <button className="button-rest" onClick={ (e) => {
-                            e.preventDefault();
-                            setCounter(counter > initial ? counter - 1 : counter) }}>-</button>
+                        <button className="button-add" onClick={(e) => addCounter(e)}>+</button>
                     </div>
                     :
                     <label className="label-nostock">No hay stock</label>
                 }
-                <button className="button-buy" disabled={!stock} onClick={(e) => {e.preventDefault(); addProduct()}}>Añadir al carrito</button>
+                <button className="button-buy" onClick={(e) => addProduct(e)}>Añadir al carrito</button>
             </form>
             <span className="span-stock">Stock: {stock}</span>
         </div>

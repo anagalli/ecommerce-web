@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import ItemCount from './ItemCount';
 import '../../assets/css/ItemDetail.css';
 
 const ItemDetail = (props) => {
 
-    const [stock, setStock] = useState(10);
+    const [stock, setStock] = useState(props.item.stock);
 
     const newStock = (amount) => {
         if (amount <= stock) {
@@ -32,6 +33,7 @@ const ItemDetail = (props) => {
                 </ul>
                 <p className="price-detail">${props.item.price}</p>
                 <ItemCount stock={stock} initial={1} onAdd={newStock}/>
+                <Link to="/cart" className="link-finalizar">Finalizar compra</Link>
             </div>
         </div>
     )
