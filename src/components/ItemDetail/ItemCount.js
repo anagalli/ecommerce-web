@@ -27,15 +27,17 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 {
                     stock
                     ?
-                    <div className="div-buttons">
-                        <button className="button-rest" onClick={(e) => restCounter(e)}>-</button>
-                        <label className="label-counter">{counter}</label>
-                        <button className="button-add" onClick={(e) => addCounter(e)}>+</button>
-                    </div>
+                    <>
+                        <div className="div-buttons">
+                            <button className="button-rest" onClick={(e) => restCounter(e)}>-</button>
+                            <label className="label-counter">{counter}</label>
+                            <button className="button-add" onClick={(e) => addCounter(e)}>+</button>
+                        </div>
+                        <button className="button-buy" onClick={(e) => addProduct(e)}>Añadir al carrito</button>
+                    </>
                     :
-                    <label className="label-nostock">No hay stock</label>
+                    <span className="label-nostock">No hay stock</span>
                 }
-                <button className="button-buy" onClick={(e) => addProduct(e)}>Añadir al carrito</button>
             </form>
             <span className="span-stock">Stock: {stock}</span>
         </div>
