@@ -10,6 +10,7 @@ const ItemDetailContainer = () =>  {
     let {id} = useParams()
 
     const [item, setItem] = useState([]);
+    const [isLoad, setIsLoad] = useState(true);
 
     useEffect(() => {
         getItem()
@@ -22,15 +23,21 @@ const ItemDetailContainer = () =>  {
     const getItem = () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          resolve(stock)
-        }, 500);
+          resolve(stock);
+          setIsLoad(false);
+        }, 2500);
       })
     }
 
     return (
     <div className="detail-products">
         {
+          isLoad
+          ?
+          <div className="lds-ring"><div></div><div></div><div></div></div>
+          :
           item.length > 0 ? <ItemDetail item={item[0]} /> : <ItemListContainer />
+          /*item.length > 0 ? <ItemDetail item={item[0]} /> : <ItemListContainer />*/
         }
     </div>
     )

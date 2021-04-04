@@ -22,8 +22,8 @@ const ItemList = (props) => {
     const getItems = () => {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
-            resolve(stock)
-          }, 1000);
+            resolve(stock);
+          }, 500);
         })
     }
 

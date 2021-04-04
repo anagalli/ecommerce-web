@@ -1,31 +1,44 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
 import ItemCount from './ItemCount';
+import CartContext from '../../context/CartContext';
 import '../../assets/css/ItemDetail.css';
 
+
 const ItemDetail = ({item}) => {
+
+    const { cart, setCart } = useContext(CartContext);
 
     const [stock, setStock] = useState(item.stock);
 
     const [finishPurchase, setFinishPurchase] = useState(false);
 
-    const newStock = (amount) => {
+    const product = {title: item.title, id: item.id, price: item.price, img: item.url};
+
+    const onAdd = (amount) => {
+
         if (amount <= stock) {
             setStock(stock - amount);
             setFinishPurchase(true);
         }
+
+        setCart([
+            ...cart,
+            { product, amount }
+        ]);
+
     }
 
     const ShowCounter = () => {
         if(finishPurchase === true){
             return(
                 <>
-                    <ItemCount stock={stock} initial={1} onAdd={newStock}/>
+                    <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
                     <Link to="/cart" className="link-finalizar">Finalizar compra</Link>
                 </>
             )
         } else {
-            return <ItemCount stock={stock} initial={1} onAdd={newStock}/>
+            return <ItemCount stock={stock} initial={1} onAdd={onAdd}/>
         }
     }
 
@@ -55,7 +68,3 @@ const ItemDetail = ({item}) => {
 }
 
 export default ItemDetail;
-
-
-/*<ItemCount stock={stock} initial={1} onAdd={newStock}/>
-                <Link to="/cart" className="link-finalizar">Finalizar compra</Link>*/
