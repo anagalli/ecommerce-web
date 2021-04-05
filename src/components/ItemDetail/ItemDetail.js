@@ -4,10 +4,9 @@ import ItemCount from './ItemCount';
 import CartContext from '../../context/CartContext';
 import '../../assets/css/ItemDetail.css';
 
-
 const ItemDetail = ({item}) => {
 
-    const { cart, setCart } = useContext(CartContext);
+    const context = useContext(CartContext);
 
     const [stock, setStock] = useState(item.stock);
 
@@ -22,10 +21,7 @@ const ItemDetail = ({item}) => {
             setFinishPurchase(true);
         }
 
-        setCart([
-            ...cart,
-            { product, amount }
-        ]);
+        context.addItem(product, amount);
 
     }
 

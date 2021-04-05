@@ -4,23 +4,25 @@ import {useParams} from 'react-router-dom';
 import '../../assets/css/ItemList.css';
 import stock from '../../stock.json';
 
-const ItemList = (props) => {
-
-    let {categoryId} = useParams();
+const ItemList = () => {
 
     const [items, setItems] = useState([]);
+    let {categoryId} = useParams();
 
     useEffect(() => {
-        setItems([])
+        let mounted = true;
         getItems()
         .then((result) => {
-            let filter = categoryId ? result.filter((element) => element.category === categoryId) : result
-            setItems(filter)
+            if (mounted) {
+                let filter = categoryId ? result.filter((element) => element.category === categoryId) : result
+                setItems(filter)
+            }
         })
+        return () => mounted = false;
     }, [categoryId]);
 
     const getItems = () => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
           setTimeout(() => {
             resolve(stock);
           }, 500);

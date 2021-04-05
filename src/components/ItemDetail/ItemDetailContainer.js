@@ -25,7 +25,7 @@ const ItemDetailContainer = () =>  {
         setTimeout(() => {
           resolve(stock);
           setIsLoad(false);
-        }, 2500);
+        }, 2000);
       })
     }
 

@@ -1,19 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './assets/css/App.css';
 import Header from './components/Header/Header';
 import Banner from './components/Header/Banner';
 import ItemListContainer from './components/Home/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
-import CartContext from './context/CartContext';
+import CartProvider from './context/CartProvider';
 import Cart from './components/Cart/Cart';
 
 function App() {
 
-  const [cart, setCart] = useState([]);
-
   return (
-    <CartContext.Provider value={{cart, setCart}}>
+    <CartProvider>
       <BrowserRouter>
         <Header />
         <Banner />
@@ -32,7 +30,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
   );
 
 }
