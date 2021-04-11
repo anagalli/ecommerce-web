@@ -1,8 +1,8 @@
-import Item from './Item';
+import { getFirestore } from "../../configs/firebase";
 import {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom';
+import Item from './Item';
 import '../../assets/css/ItemList.css';
-import stock from '../../stock.json';
 
 const ItemList = () => {
 
@@ -11,23 +11,28 @@ const ItemList = () => {
 
     useEffect(() => {
         let mounted = true;
-        getItems()
-        .then((result) => {
+        const db = getFirestore();
+        const products = db.collection("products");
+        products
+        .get()
+        .then((resp) => {
             if (mounted) {
-                let filter = categoryId ? result.filter((element) => element.category === categoryId) : result
-                setItems(filter)
+                if (resp.size === 0) {
+                    console.log("Sin datos");
+                }
+                let allProducts = resp.docs.map( el => {
+                    return {id: el.id, ...el.data()}
+                });
+                if (categoryId) {
+                    let filter = allProducts.filter( el => el.category === categoryId);
+                    setItems(filter);
+                } else {
+                    setItems(allProducts);
+                }
             }
-        })
+        }).catch((error) => console.log(error))
         return () => mounted = false;
     }, [categoryId]);
-
-    const getItems = () => {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(stock);
-          }, 500);
-        })
-    }
 
     return (
         <div className="products-div">
