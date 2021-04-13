@@ -4,29 +4,24 @@ import ItemCount from './ItemCount';
 import CartContext from '../../context/CartContext';
 import '../../assets/css/ItemDetail.css';
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({item, id}) => {
 
-    const context = useContext(CartContext);
-
+    const { addItem } = useContext(CartContext);
     const [stock, setStock] = useState(item.stock);
-
     const [finishPurchase, setFinishPurchase] = useState(false);
 
-    const product = {title: item.title, id: item.id, price: item.price, img: item.url};
+    const product = {title: item.title, id: id, price: item.price, img: item.url};
 
     const onAdd = (amount) => {
-
         if (amount <= stock) {
             setStock(stock - amount);
             setFinishPurchase(true);
         }
-
-        context.addItem(product, amount);
-
+        addItem(product, amount);
     }
 
     const ShowCounter = () => {
-        if(finishPurchase === true){
+        if(finishPurchase){
             return(
                 <>
                     <ItemCount stock={stock} initial={1} onAdd={onAdd}/>

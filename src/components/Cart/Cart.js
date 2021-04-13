@@ -44,6 +44,7 @@ function Cart() {
                         <p className="total-price-cart">Precio total: ${context.totalPrice()}</p>
                         <div className="container-clear-cart">
                             <button onClick={() => { context.clear() } } className="button-clear-cart">Vaciar</button>
+                            <Link to="/checkout" className="finish-cart-link">Finalizar</Link>
                         </div>
                     </div>
                 </div>
@@ -53,18 +54,3 @@ function Cart() {
 }
 
 export default Cart;
-
-
-/*<div className="product-cart">
-                        <div className="container-img-text">
-                            <img className="img-product-cart" src="https://www.sensei.com.ar/image/cache/catalog/Productos%20nuevos/Junio/30930%201-550x550.jpg" alt="img" />
-                            <div className="text-product-cart">
-                                <p className="title-product-cart">Producto 1</p>
-                                <p className="quantity-product-cart">Cantidad: 4</p>
-                                <p className="price-product-cart">Precio: $125000</p>
-                            </div>
-                        </div>
-                        <div className="div-remove-cart">
-                            <span className="span-remove-cart">X</span>
-                        </div>
-                    </div>*/

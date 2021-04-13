@@ -25,17 +25,17 @@ const ItemDetailContainer = () => {
 
   return (
     <div className="detail-products">
-      {isLoad ? (
+      {isLoad ?
         <div className="lds-ring">
           <div></div>
           <div></div>
           <div></div>
         </div>
-      ) : item ? (
-        <ItemDetail item={item} />
-      ) : (
+      : item ?
+        <ItemDetail item={item} id={id} />
+      :
         <ItemListContainer />
-      )}
+      }
     </div>
   );
 };

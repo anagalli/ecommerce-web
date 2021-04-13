@@ -6,8 +6,7 @@ const CartProvider = ({ defaultValue = [], children }) => {
     const [cart, setCart] = useState(defaultValue);
 
     const addItem = ( product, amount) => {
-        let productId = product.id;
-        let productIndex = isInCart(productId);
+        let productIndex = isInCart(product.id);
         if ( productIndex >= 0) {
             cart[productIndex] = { product, amount: cart[productIndex].amount + amount};
             setCart(cart);
