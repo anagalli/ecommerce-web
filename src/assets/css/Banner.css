@@ -1,6 +1,5 @@
 .banner {
-    background-image: url(../images/banner.jpg);
-    background-position: center;
+    background-image: linear-gradient(to top, #c1cecd, #9babaa, #768a89, #536a68, #324b4a);
 }
 
 .banner-container {
@@ -12,24 +11,29 @@
 }
 
 .text-banner {
-    width: 360px;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #fff;
     text-align: center;
 }
 
 .title-banner {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-family: 'Expletus Sans', cursive;
 }
 
 .span-title {
-    font-size: 36px;
-    color: #C20000;
+    text-transform: none;
+    font-size: 40px;
+    color: #324B4A;
 }
 
 .subtitle-banner {
     font-size: 24px;
+    width: 340px;
+    font-family: 'Lato', sans-serif;
 }
 
 .img-banner {

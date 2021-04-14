@@ -74,18 +74,6 @@ const Checkout = () => {
         );
     }
 
-    const OrderFinalMessage = () => {
-        return(
-            <div className="container-order-message">
-                <p>Gracias por su compra!</p>
-                <br />
-                <p>Numero de orden: {lastId}</p>
-                <br />
-                <Link to="/">Cerrar</Link>
-            </div>
-        );
-    }
-
     const WaitingMessage = () => {
         return(
             <div className="waiting-div">
@@ -93,6 +81,18 @@ const Checkout = () => {
             </div>
         );
     }
+
+    const OrderFinalMessage = () => {
+        return(
+            <div className="container-order-message">
+                <p className="thanks-message">Gracias por su compra!</p>
+                <p className="text-order-message">Numero de orden: {lastId}</p>
+                <Link to="/" className="link-order-message">Cerrar</Link>
+            </div>
+        );
+    }
+
+    
 
     return(
         <>

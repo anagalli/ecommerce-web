@@ -1,11 +1,11 @@
 .cart-container {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
 }
 
-.cart-img {
-    height: 22px;
-    margin-right: 6px;
+.cart-icon {
+    width: 22px;
+    margin-left: 6px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -13,8 +13,9 @@
 
 .span-cart {
     display: inline-block;
-    height: 18px;
     font-weight: 600;
     color: rgb(61, 61, 61);
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'Lato', sans-serif;
 }

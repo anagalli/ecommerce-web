@@ -3,7 +3,7 @@ import { getFirestore } from "../../configs/firebase";
 import { useParams } from "react-router-dom";
 import "../../assets/css/ItemDetailContainer.css";
 import ItemDetail from "./ItemDetail";
-import ItemListContainer from "../Home/ItemListContainer";
+import ItemListContainer from "../Item/ItemListContainer";
 
 const ItemDetailContainer = () => {
 
@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <div className="detail-products">
+    <div className="detail-container">
       {isLoad ?
         <div className="lds-ring">
           <div></div>

@@ -3,6 +3,7 @@
     width: 240px;
     box-shadow: 0px 0px 4px rgb(200, 200, 200);
     background: rgb(243, 243, 243);
+    font-family: 'Lato', sans-serif;
 }
 
 .product-card:hover {

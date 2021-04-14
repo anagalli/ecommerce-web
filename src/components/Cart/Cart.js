@@ -2,7 +2,7 @@ import {useContext} from 'react';
 import CartContext from '../../context/CartContext';
 import { Link } from 'react-router-dom';
 import '../../assets/css/Cart.css';
-import imgEmptyCart from '../../assets/images/empty-cart-img.png'
+import imgEmptyCart from '../../assets/images/cartEmpty.png'
 
 function Cart() {
 
@@ -13,14 +13,15 @@ function Cart() {
             {
                 context.cart.length === 0
                 ?
-                <div className="div-empty-cart">
+                <div className="container-empty-cart">
                     <img className="img-empty-cart" src={imgEmptyCart} alt="Empty Cart"/>
                 </div>
                 :
-                <div className="container-list-cart">
+                <div className="container-cart">
                     <div className="container-back">
                         <Link to="/" className="link-back">Volver</Link>
                     </div>
+                    <div className="container-product-cart">
                     {
                         context.cart.map( (el, index) => {
                             return(
@@ -40,6 +41,7 @@ function Cart() {
                             );
                         })
                     }
+                    </div>
                     <div className="container-price-clear">
                         <p className="total-price-cart">Precio total: ${context.totalPrice()}</p>
                         <div className="container-clear-cart">

@@ -5,68 +5,112 @@
 
 .title-checkout {
     font-size: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-family: 'Expletus Sans', cursive;
 }
 
 .text-checkout {
+    font-size: 18px;
     margin-bottom: 60px;
+    font-family: 'Lato', sans-serif;
 }
 
 .form-checkout {
-    padding: 20px;
-    width: 360px;
+    width: 400px;
     margin: auto;
     text-align: left;
-    box-shadow: 0px 0px 10px rgb(182, 182, 182);
+    font-family: 'Lato', sans-serif;
 }
 
 .div-input {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .label-input {
     display: block;
-    margin-bottom: 8px;
     text-transform: uppercase;
     font-size: 13px;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .form-input {
     display: block;
     width: 100%;
     font-size: 14px;
-    padding: 6px;
+    padding: 6px 0px 2px 0px;
+    border: none;
+    border-bottom: 2px solid #324b4a;
+}
+
+.form-input:focus {
+    outline: none;
 }
 
 .button-form {
     margin-top: 5px;
-    padding: 6px 0px;
+    padding: 8px 0px;
     border-radius: 0px;
     text-transform: uppercase;
     font-size: 12px;
     font-weight: bold;
     cursor: pointer;
     border: none;
-    border: 2px solid #000;
-    color: #000;
-    background: transparent;
+    background: #324b4a;
+    border: 2px solid #324b4a;
+    color: #fff;
     width: 100%;
 }
 
 .button-form:hover {
-    border: 2px solid #C20000;
-    color: #C20000;
-    transition-duration: 0.6s;
+    border: 2px solid #324b4a;
+    color: #324b4a;
+    background: transparent;
+    transition-duration: 0.2s;
 }
 
-.container-order-message {
-    text-align: center;
-    padding: 80px 0px;
+form button:focus, form button:active{
+    border: 2px solid #324b4a;
+    border-radius: 0px;
+    outline: none;
 }
-
 
 .waiting-div {
     text-align: center;
     padding: 60px 0px;
+    font-family: 'Lato', sans-serif;
 }
+
+.container-order-message {
+    margin: 60px auto;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #324b4a;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+.thanks-message {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.text-order-message {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.link-order-message {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 13px;
+    background: #324b4a;
+    padding: 6px 30px;
+}
+
+

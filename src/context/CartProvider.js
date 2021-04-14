@@ -8,7 +8,7 @@ const CartProvider = ({ defaultValue = [], children }) => {
     const addItem = ( product, amount) => {
         let productIndex = isInCart(product.id);
         if ( productIndex >= 0) {
-            cart[productIndex] = { product, amount: cart[productIndex].amount + amount};
+            cart[productIndex] = { product, amount: cart[productIndex].amount + amount };
             setCart(cart);
         } else {
             setCart([

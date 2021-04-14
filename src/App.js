@@ -3,7 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './assets/css/App.css';
 import Header from './components/Header/Header';
 import Banner from './components/Header/Banner';
-import ItemListContainer from './components/Home/ItemListContainer';
+import ItemListContainer from './components/Item/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import CartProvider from './context/CartProvider';
 import Cart from './components/Cart/Cart';
@@ -15,12 +15,12 @@ function App() {
     <CartProvider>
       <BrowserRouter>
         <Header />
-        <Banner />
         <Switch>
           <Route path="/product/:id">
             <ItemDetailContainer />
           </Route>
           <Route path="/category/:categoryId">
+            <Banner />
             <ItemListContainer />
           </Route>
           <Route path="/cart">
@@ -30,6 +30,7 @@ function App() {
             <Checkout />
           </Route>
           <Route exact path="/">
+            <Banner />
             <ItemListContainer />
           </Route>
         </Switch>

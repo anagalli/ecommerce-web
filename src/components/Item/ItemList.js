@@ -36,7 +36,12 @@ const ItemList = () => {
 
     return (
         <div className="products-div">
-            <h1 className="title-section">Productos</h1>
+            {
+                categoryId ?
+                <h1 className="title-section">{categoryId}</h1>
+                :
+                <h1 className="title-section">Productos</h1>
+            }
             <div className="products-container">
                 {items.map((el) => {
                     return(

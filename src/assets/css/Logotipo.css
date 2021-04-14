@@ -3,11 +3,10 @@
 }
 
 .link-logotipo {
-    color: #000;
+    color: #324B4A;
     text-decoration: none;
     display: inline-block;
-}
-
-.img-logotipo {
-    height: 18px;
+    font-family: 'Expletus Sans', cursive;
+    font-weight: 900;
+    font-size: 24px;
 }

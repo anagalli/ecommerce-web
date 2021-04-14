@@ -1,33 +1,24 @@
+.ul-nav {
+    width: 340px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 li {
     list-style: none;
 }
 
 .link-nav {
-    color: #000;
+    color: #324B4A;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 900;
+    font-family: 'Lato', sans-serif;
 }
 
 .link-nav:hover {
-    color: #C20000;
-}
-
-.ul-nav {
-    width: 320px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.ul-categories {
-    position: absolute;
-    top: 58px;
-    display: none;
-    background: rgb(255, 255, 255);
-}
-
-.ul-categories li {
-    border-bottom: 1px solid rgb(104, 104, 104);
-    padding: 10px 10px;
+    color: #324b4a80;
 }
