@@ -10,7 +10,7 @@ function CartWidget() {
 
     let totalItems = 0;
 
-    for (let i = 0; i < cart.length; i++) {
+    for (let i = 0; i<cart.length; i++) {
         totalItems = totalItems + cart[i].amount;
     }
 

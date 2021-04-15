@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { getFirestore } from "../../configs/firebase";
-import { useParams } from "react-router-dom";
-import "../../assets/css/ItemDetailContainer.css";
-import ItemDetail from "./ItemDetail";
-import ItemListContainer from "../Item/ItemListContainer";
+import React, { useEffect, useState } from 'react';
+import { getFirestore } from '../../configs/firebase';
+import { useParams } from 'react-router-dom';
+import '../../assets/css/ItemDetailContainer.css';
+import ItemDetail from './ItemDetail';
+import NoItemFound from './NoItemFound';
 
 const ItemDetailContainer = () => {
 
@@ -34,7 +34,7 @@ const ItemDetailContainer = () => {
       : item ?
         <ItemDetail item={item} id={id} />
       :
-        <ItemListContainer />
+        <NoItemFound />
       }
     </div>
   );

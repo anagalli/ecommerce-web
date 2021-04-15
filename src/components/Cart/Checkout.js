@@ -10,12 +10,35 @@ import "firebase/firestore";
 const Checkout = () => {
 
     const {cart, clear, totalPrice} = useContext(CartContext);
-    const [db, setDb] = useState(getFirestore());
+    const db = getFirestore();
     const [lastId, setLastId] = useState('');
     const [isLoad, setIsLoad] = useState(true);
+    const [priceOrder, setPriceOrder] = useState(0);
+    const [emptyInput, setEmptyInput] = useState(false);
+    const [wrongEmail, setWrongEmail] = useState(false);
 
-    const createNewOrder = (e) => {
+    const checkedData = (e) => {
+
         e.preventDefault();
+
+        const checkedEmail = document.getElementById('user-check-email').value;
+        const email = document.getElementById('user-email').value;
+
+        if (email === '' || checkedEmail === '') {
+            setEmptyInput(true);
+        } else {
+            setEmptyInput(false);
+            if (email === checkedEmail) {
+                setWrongEmail(false);
+                createNewOrder();
+            } else {
+                setWrongEmail(true);
+            }
+        }
+
+    }
+
+    const createNewOrder = () => {
         const newOrder = {
             user: {
                 name: document.getElementById('user-name').value,
@@ -33,7 +56,6 @@ const Checkout = () => {
             }, 4000);
         });
         clear();
-        document.getElementById('form-checkout').reset();
     }
 
     const listProductsCart = () => {
@@ -58,17 +80,27 @@ const Checkout = () => {
                 <form id="form-checkout" className="form-checkout">
                     <div className="div-input">
                         <label className="label-input">Nombre y Apellido: </label>
-                        <input id="user-name" className="form-input" type="text" required></input>
+                        <input id="user-name" className="form-input" type="text" required autocomplete="off"></input>
                     </div>
                     <div className="div-input">
                         <label className="label-input">Teléfono: </label>
-                        <input id="user-number" className="form-input" type="tel" required></input>
+                        <input id="user-number" className="form-input" type="tel" required autocomplete="off"></input>
                     </div>
                     <div className="div-input">
                         <label className="label-input">Correo:</label>
-                        <input id="user-email" className="form-input" type="email" required></input>
+                        <input id="user-email" className="form-input" type="email" required autocomplete="off"></input>
                     </div>
-                    <button onClick={(e) => createNewOrder(e)}className="button-form" type="submit">Confirmar</button>
+                    <div className="div-input">
+                        <label className="label-input">Reingrese su correo:</label>
+                        <input id="user-check-email" className="form-input" type="email" required autocomplete="off"></input>
+                    </div>
+                    {
+                        emptyInput ?
+                        <span className="warning-text">Por favor completar todos los campos.</span>
+                        : wrongEmail &&
+                        <span className="warning-text">El correo no coincide.</span>
+                    }
+                    <button onClick={(e) => checkedData(e)}className="button-form" type="submit">Confirmar</button>
                 </form>
             </div>
         );
@@ -83,16 +115,21 @@ const Checkout = () => {
     }
 
     const OrderFinalMessage = () => {
+        const orderUser = db.collection('orders').doc(lastId);
+        orderUser.get().then( resp => {
+            setPriceOrder(resp.data().total);
+        });
+
         return(
             <div className="container-order-message">
                 <p className="thanks-message">Gracias por su compra!</p>
                 <p className="text-order-message">Numero de orden: {lastId}</p>
+                <p className="price-order-message">Precio: ${priceOrder}</p>
                 <Link to="/" className="link-order-message">Cerrar</Link>
             </div>
         );
     }
 
-    
 
     return(
         <>

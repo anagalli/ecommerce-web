@@ -1,15 +1,23 @@
 import { useState } from 'react';
 import CartContext from './CartContext';
 
-const CartProvider = ({ defaultValue = [], children }) => {
+const CartProvider = ({ children }) => {
 
-    const [cart, setCart] = useState(defaultValue);
+    const [cart, setCart] = useState([]);
 
     const addItem = ( product, amount) => {
-        let productIndex = isInCart(product.id);
-        if ( productIndex >= 0) {
-            cart[productIndex] = { product, amount: cart[productIndex].amount + amount };
-            setCart(cart);
+
+        const productIndex = isInCart(product.id);
+
+        if (productIndex >= 0) {
+            const newAmount = cart[productIndex].amount + amount;
+            const newItem = cart.map(function(el){
+                if (el.product.id === product.id) {
+                    el = {product, amount: newAmount}
+                }
+                return el;
+            });
+            setCart(newItem);
         } else {
             setCart([
                 ...cart,
@@ -19,15 +27,8 @@ const CartProvider = ({ defaultValue = [], children }) => {
     };
 
     const isInCart = (id) => {
-        let response = -1;
-        if (cart.length !== 0) {
-            for (let i = 0; i < cart.length; i++) {
-                if (cart[i].product.id === id) {
-                    response = i;
-                }
-            }
-        }
-        return response;
+        const indexElement = cart.findIndex((el) => el.product.id === id);
+        return indexElement;
     }
 
     const totalPrice = () => {
@@ -49,7 +50,7 @@ const CartProvider = ({ defaultValue = [], children }) => {
     };
 
     return(
-        <CartContext.Provider value={{ cart, addItem, clear, totalPrice, removeItem }}>
+        <CartContext.Provider value={{ cart, addItem, clear, totalPrice, removeItem}}>
             { children }
         </CartContext.Provider>
     );
